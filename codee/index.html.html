@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Showcase</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #222;
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #000; /* Fallback if image fails */
+        }
+
+        .container {
+            text-align: center;
+            background-color: rgba(34, 34, 34, 0.85);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease-in-out;
+            max-width: 800px;
+            width: 90%;
+        }
+
+        .container:hover {
+            transform: scale(1.03);
+        }
+
+        h1 {
+            color: #e74c3c;
+            margin-bottom: 25px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+
+        #video-link {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #e74c3c;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 1.2em;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        #video-link:hover {
+            background-color: #c0392b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.4);
+        }
+
+        #video-container {
+            display: none;
+            margin-top: 30px;
+        }
+
+        #my-video {
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: auto;
+            max-height: 450px;
+        }
+
+        /* Add a subtle glow effect */
+        @keyframes glow {
+            0% {
+                box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(231, 76, 60, 1);
+            }
+            100% {
+                box-shadow: 0 0 10px rgba(231, 76, 60, 0.8);
+            }
+        }
+
+        #video-link:focus,
+        #video-link:active {
+            animation: glow 2s infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Want some tunes?</h1>
+        <a href="javascript:void(0);" id="video-link">Click</a>
+
+        <div id="video-container">
+            <video id="my-video" width="560" height="315" controls>
+                <source src="https://nsf-m4c-one-fr-10.sf-converter.com/prod-new/download/eyJtZWRpYUlkIjoiaFdqd05naUxNZ0EiLCJ0aXRsZSI6IlNaQSAtIEJNRiAoT2ZmaWNpYWwgQXVkaW8pIiwiZm9ybWF0IjoibXA0IiwicXVhbGl0eSI6NzIwLCJ0aW1lc3RhbXAiOjE3NDQwOTg5NjN9.c7e74e9a8f127e5892bc552ae79bb9a0" type="video/mp4">
+                Your browser does not support HTML5 video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        const videoLink = document.getElementById('video-link');
+        const videoContainer = document.getElementById('video-container');
+        const myVideo = document.getElementById('my-video');
+
+        videoLink.addEventListener('click', function() {
+            videoContainer.style.display = "block";
+            videoLink.style.display = "none";
+            myVideo.play(); // Start playing the video
+        });
+
+        myVideo.addEventListener('click', function() {
+            myVideo.playbackRate = 1; // Set playback speed to normal
+        });
+    </script>
+</body>
+</html>
